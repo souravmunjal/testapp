@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="gray">#BBB9B9</color>
+    <color name="onPressed">#0DBE0D</color>
+    <color name="white">#FFFFFF</color>
+    <color name="listprimary_black">#dd000000</color>
+    <color name="black_38">#60000000</color>
+    <color name="smalltext_lightgrey">#89000000</color>
+    <color name="textlink_blue">#36a2eb</color>
+    <color name="black_overlay">#33000000</color>
+    <color name="divider">#dddddd</color>
+    <color name="black">#000000</color>
+    <color name="border">#DDDDDD</color>
+    <color name="red">#FF0000</color>
+    <color name="orange">#FF7F00</color>
+    <color name="yellow">#FFEA28</color>
+    <color name="light_yellow">#40F5ECA6</color>
+    <color name="bright_pink">#FF007F</color>
+    <color name="chartreuse">#7FFF00</color>
+    <color name="green">#00862D</color>
+    <color name="spring_green">#00FF7F</color>
+    <color name="cyan">#00FFFF</color>
+    <color name="azure">#007FFF</color>
+    <color name="blue">#0000FF</color>
+    <color name="violet">#7F00FF</color>
+    <color name="magenta">#FF00FF</color>
+    <color name="transparent">#00000000</color>
+    <color name="googlered">#dd4b39</color>
+    <color name="facebookblue">#3b5998</color>
+    <color name="verifygreen">#2b5c32</color>
+    <color name="printbasicblue">#D054AE</color>
+    <color name="lightblue">#f1faf6</color>
+    <color name="darkwhite">#EEECEC</color>
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#6F6F6F</color>
+    <color name="light_gray">#464646</color>
+</resources>
