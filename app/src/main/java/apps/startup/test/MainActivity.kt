@@ -1,11 +1,16 @@
 package apps.startup.test
 
+import android.Manifest
 import android.content.Intent
+import android.content.pm.PackageManager
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
-import apps.startup.test.Constants.DATABASE_NAME
-import apps.startup.test.Constants.USER_KEY
+import androidx.annotation.NonNull
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
+import apps.startup.test.Constants.*
 import com.google.android.gms.tasks.TaskExecutors
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.FirebaseAuth
@@ -61,6 +66,35 @@ class MainActivity : AppCompatActivity() {
                 Toaster.makeSnackBarFromActivity(this, "invalid code")
         }
 
+        if (ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.CAMERA)
+            != PackageManager.PERMISSION_GRANTED
+            &&
+            ContextCompat.checkSelfPermission(this@MainActivity, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+            != PackageManager.PERMISSION_GRANTED) {
+            ActivityCompat.requestPermissions(this,
+                arrayOf(Manifest.permission.CAMERA,Manifest.permission.WRITE_EXTERNAL_STORAGE,Manifest.permission.READ_EXTERNAL_STORAGE),
+                RESULT_CODE)
+
+        }
+
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>, @NonNull grantResults: IntArray) {
+        Log.e("tagb ", "onRequestPermissionsResult: ")
+        if (requestCode == RESULT_CODE) {
+            var allPermissionsGranted = true
+            for (result in grantResults) {
+                if (result != 0) {
+                    allPermissionsGranted = false
+                }
+            }
+
+            if (!allPermissionsGranted) {
+                finish()
+            } else {
+            }
+        }
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     }
 
     //This function check if the user is first time or not

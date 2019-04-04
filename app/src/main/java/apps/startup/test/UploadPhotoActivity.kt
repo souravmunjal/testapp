@@ -106,13 +106,12 @@ class UploadPhotoActivity : AppCompatActivity() {
 
 
     private fun uploadPhoto(uri:String) {
-        progressBar.visibility= View.INVISIBLE;
+        progressBar.visibility= View.VISIBLE;
 
 
         val storageReference: StorageReference =  FirebaseStorage.getInstance().getReference().child(DATABASE_NAME).child(key)
         val temp = storageReference.child("image")
         val uploadTask:UploadTask = temp.putFile(uri.toUri())
-        progressBar.visibility= View.VISIBLE;
         uploadTask.continueWithTask(Continuation<UploadTask.TaskSnapshot, Task<Uri>> { task ->
             if (!task.isSuccessful) {
                 throw task.getException()!!
@@ -125,7 +124,6 @@ class UploadPhotoActivity : AppCompatActivity() {
                 databaseReference.child(DATABASE_NAME).child(key).setValue(userdetails)
                 //After updating the details we have to update the details
                 displayDetails()
-                progressBar.visibility= View.INVISIBLE;
                 Toaster.makeSnackBarFromActivity(this,"Uploaded")
             }
             else {
